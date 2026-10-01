@@ -16,9 +16,9 @@ class DashboardTest extends TestCase
         $response->assertRedirect(route('login'));
     }
 
-    public function test_authenticated_users_can_visit_the_dashboard(): void
+    public function test_unverified_users_can_visit_the_dashboard(): void
     {
-        $user = User::factory()->create();
+        $user = User::factory()->unverified()->create();
         $this->actingAs($user);
 
         $response = $this->get(route('dashboard'));
