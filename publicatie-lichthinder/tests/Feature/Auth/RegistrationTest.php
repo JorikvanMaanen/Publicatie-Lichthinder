@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Auth;
 
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Fortify\Features;
 use Tests\TestCase;
@@ -37,5 +38,8 @@ class RegistrationTest extends TestCase
             ->assertRedirect(route('home', absolute: false));
 
         $this->assertAuthenticated();
+        $user = User::where('email', 'test@example.com')->firstOrFail();
+
+        $this->assertFalse($user->is_approved);
     }
 }

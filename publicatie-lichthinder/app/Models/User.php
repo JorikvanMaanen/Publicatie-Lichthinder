@@ -15,6 +15,7 @@ use Illuminate\Support\Str;
  * @property int $id
  * @property string $name
  * @property string $email
+ * @property bool $is_approved
  * @property Carbon|null $email_verified_at
  * @property string $password
  * @property string|null $remember_token
@@ -36,6 +37,7 @@ class User extends Authenticatable
     protected function casts(): array
     {
         return [
+            'is_approved' => 'boolean',
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
