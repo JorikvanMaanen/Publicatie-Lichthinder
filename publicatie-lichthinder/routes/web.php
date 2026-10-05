@@ -13,6 +13,9 @@ Route::get('account-created', function () {
 Route::middleware(['auth'])->group(function () {
     Route::view('home', 'home')->name('home');
     Route::view('vieuw/richtlijn', 'richtlijn')->name('richtlijn');
+    Route::view('admin/users', 'admin.users')
+        ->middleware('can:manage-users')
+        ->name('admin.users');
 });
 
 require __DIR__.'/settings.php';

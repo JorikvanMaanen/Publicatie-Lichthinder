@@ -16,6 +16,12 @@
                 wire:navigate>
                 {{ __('Home') }}
             </flux:navbar.item>
+            @can('manage-users')
+                <flux:navbar.item icon="users" :href="route('admin.users')" :current="request()->routeIs('admin.users')"
+                    wire:navigate>
+                    {{ __('Gebruikersbeheer') }}
+                </flux:navbar.item>
+            @endcan
         </flux:navbar>
 
         <flux:spacer />
@@ -54,6 +60,12 @@
                     wire:navigate>
                     {{ __('Home') }}
                 </flux:sidebar.item>
+                @can('manage-users')
+                    <flux:sidebar.item icon="users" :href="route('admin.users')" :current="request()->routeIs('admin.users')"
+                        wire:navigate>
+                        {{ __('Gebruikersbeheer') }}
+                    </flux:sidebar.item>
+                @endcan
             </flux:sidebar.group>
         </flux:sidebar.nav>
 

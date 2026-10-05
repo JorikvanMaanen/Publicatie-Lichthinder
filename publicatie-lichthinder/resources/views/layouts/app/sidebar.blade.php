@@ -15,6 +15,16 @@
                     <flux:sidebar.item icon="home" :href="route('home')" :current="request()->routeIs('home')" wire:navigate>
                         {{ __('Home') }}
                     </flux:sidebar.item>
+                    @can('manage-users')
+                        <flux:sidebar.item
+                            icon="users"
+                            :href="route('admin.users')"
+                            :current="request()->routeIs('admin.users')"
+                            wire:navigate
+                        >
+                            {{ __('Gebruikersbeheer') }}
+                        </flux:sidebar.item>
+                    @endcan
                 </flux:sidebar.group>
             </flux:sidebar.nav>
 
