@@ -15,7 +15,10 @@ class AuthenticationTest extends TestCase
     {
         $response = $this->get(route('login'));
 
-        $response->assertOk()->assertDontSee('passkey');
+        $response
+            ->assertOk()
+            ->assertDontSee('passkey')
+            ->assertSee(asset('images/NSVVLOGO.png'), false);
     }
 
     public function test_users_can_authenticate_using_the_login_screen(): void
