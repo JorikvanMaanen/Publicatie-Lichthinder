@@ -4,7 +4,7 @@
             <a href="{{ route('richtlijn') }}" wire:navigate class="block">
                 <img
                     src="{{ asset('images/Lichthinder webpagina.png') }}"
-                    alt="Open de richtlijn"
+                    alt="{{ __('Open de richtlijn') }}"
                     class="h-auto max-w-full rounded-xl"
                 >
                 <p class="mt-2 text-center">Lichthinder richtlijn</p>

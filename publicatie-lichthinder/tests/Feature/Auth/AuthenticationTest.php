@@ -18,7 +18,9 @@ class AuthenticationTest extends TestCase
         $response
             ->assertOk()
             ->assertDontSee('passkey')
-            ->assertSee(asset('images/NSVVLOGO.png'), false);
+            ->assertSee(asset('images/NSVVLOGO.png'), false)
+            ->assertSee('Inloggen')
+            ->assertSee('<html lang="nl"', false);
     }
 
     public function test_users_can_authenticate_using_the_login_screen(): void

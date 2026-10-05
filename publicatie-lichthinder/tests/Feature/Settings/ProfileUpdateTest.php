@@ -18,7 +18,7 @@ class ProfileUpdateTest extends TestCase
 
         $this->get('/settings/profile')
             ->assertOk()
-            ->assertDontSee('Delete account');
+            ->assertDontSee('Account verwijderen');
     }
 
     public function test_profile_information_can_be_updated(): void
@@ -39,5 +39,4 @@ class ProfileUpdateTest extends TestCase
         $this->assertEquals('Test User', $user->name);
         $this->assertEquals('test@example.com', $user->email);
     }
-
 }

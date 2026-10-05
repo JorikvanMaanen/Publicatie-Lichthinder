@@ -49,7 +49,7 @@
         </flux:sidebar.header>
 
         <flux:sidebar.nav>
-            <flux:sidebar.group :heading="__('Platform')">
+            <flux:sidebar.group :heading="__('Navigatie')">
                 <flux:sidebar.item icon="layout-grid" :href="route('home')" :current="request()->routeIs('home')"
                     wire:navigate>
                     {{ __('Home') }}

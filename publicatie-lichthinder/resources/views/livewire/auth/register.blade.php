@@ -27,7 +27,7 @@
                 type="email"
                 required
                 autocomplete="email"
-                placeholder="email@example.com"
+                placeholder="naam@voorbeeld.nl"
             />
 
             <!-- Password -->

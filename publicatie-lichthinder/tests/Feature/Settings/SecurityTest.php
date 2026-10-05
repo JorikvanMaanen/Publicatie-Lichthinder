@@ -24,7 +24,7 @@ class SecurityTest extends TestCase
         $response->assertOk();
 
         $response->assertDontSee('Passkeys');
-        $response->assertDontSee('Two-factor authentication');
+        $response->assertDontSee('Tweestapsverificatie');
     }
 
     public function test_passkey_endpoint_is_not_available(): void
