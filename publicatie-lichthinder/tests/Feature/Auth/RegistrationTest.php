@@ -35,11 +35,14 @@ class RegistrationTest extends TestCase
         ]);
 
         $response->assertSessionHasNoErrors()
-            ->assertRedirect(route('home', absolute: false));
+            ->assertRedirect(route('auth.account-created', absolute: false));
 
-        $this->assertAuthenticated();
+        $this->assertGuest();
         $user = User::where('email', 'test@example.com')->firstOrFail();
 
         $this->assertFalse($user->is_approved);
+
+        $this->get(route('auth.account-created'))
+            ->assertOk();
     }
 }
