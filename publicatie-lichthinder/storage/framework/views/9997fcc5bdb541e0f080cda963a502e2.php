@@ -1,5 +1,5 @@
-<?php # [BlazeFolded]:{flux::toast}:{C:\Users\j_van\Desktop\school\Publicatie Lichthinder\app\Publicatie Lichthinder\publicatie-lichthinder\vendor\livewire\flux\src/../stubs/resources/views/flux/toast/index.blade.php}:{1789445708} ?>
-<?php # [BlazeFolded]:{flux::toast.group}:{C:\Users\j_van\Desktop\school\Publicatie Lichthinder\app\Publicatie Lichthinder\publicatie-lichthinder\vendor\livewire\flux\src/../stubs/resources/views/flux/toast/group.blade.php}:{1789445708} ?>
+<?php # [BlazeFolded]:{flux::toast}:{C:\Users\j_van\Desktop\school\Publicatie Lichthinder\app\Publicatie Lichthinder\publicatie-lichthinder\vendor\livewire\flux\src/../stubs/resources/views/flux/toast/index.blade.php}:{1790586892} ?>
+<?php # [BlazeFolded]:{flux::toast.group}:{C:\Users\j_van\Desktop\school\Publicatie Lichthinder\app\Publicatie Lichthinder\publicatie-lichthinder\vendor\livewire\flux\src/../stubs/resources/views/flux/toast/group.blade.php}:{1790586892} ?>
 <!DOCTYPE html>
 <html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>" class="dark">
     <head>

@@ -8,7 +8,7 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/app.css',
-                'resources/js/richtlijn.js',
+                'resources/js/app.js',
             ],
             refresh: true,
             fonts: [
