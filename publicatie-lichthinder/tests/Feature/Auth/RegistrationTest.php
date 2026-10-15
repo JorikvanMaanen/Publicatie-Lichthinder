@@ -40,7 +40,7 @@ class RegistrationTest extends TestCase
         $this->assertGuest();
         $user = User::where('email', 'test@example.com')->firstOrFail();
 
-        $this->assertFalse($user->is_approved);
+        $this->assertSame(User::APPROVAL_PENDING, $user->approval_status);
 
         $this->get(route('auth.account-created'))
             ->assertOk();

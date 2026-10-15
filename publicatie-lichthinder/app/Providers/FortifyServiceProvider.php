@@ -58,12 +58,22 @@ class FortifyServiceProvider extends ServiceProvider
                 return null;
             }
 
-            if ($user->is_approved !== true) {
+            if ($user->approval_status !== User::APPROVAL_APPROVED) {
                 app(LoginRateLimiter::class)->increment($request);
+                $rejected = $user->approval_status === User::APPROVAL_REJECTED;
+                $message = $rejected
+                    ? __('Je account is afgekeurd. Neem contact op met een beheerder als je vragen hebt.')
+                    : __('Je account wacht nog op goedkeuring.');
+
+                if ($rejected) {
+                    $request->session()->flash('login_rejection', $message);
+                }
 
                 throw ValidationException::withMessages([
-                    'email' => [__('Your account is awaiting approval.')],
-                ])->redirectTo(route('auth.account-created'));
+                    'email' => [$message],
+                ])->redirectTo($rejected
+                    ? route('login')
+                    : route('auth.account-created'));
             }
 
             return $user;

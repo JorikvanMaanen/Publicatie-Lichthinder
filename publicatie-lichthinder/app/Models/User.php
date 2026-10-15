@@ -15,7 +15,7 @@ use Illuminate\Support\Str;
  * @property int $id
  * @property string $name
  * @property string $email
- * @property bool $is_approved
+ * @property string $approval_status
  * @property string $role
  * @property Carbon|null $email_verified_at
  * @property string $password
@@ -31,6 +31,12 @@ class User extends Authenticatable
 
     public const ROLE_USER = 'user';
 
+    public const APPROVAL_PENDING = 'pending';
+
+    public const APPROVAL_APPROVED = 'approved';
+
+    public const APPROVAL_REJECTED = 'rejected';
+
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
@@ -42,7 +48,6 @@ class User extends Authenticatable
     protected function casts(): array
     {
         return [
-            'is_approved' => 'boolean',
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];

@@ -2,6 +2,12 @@
     <div class="flex flex-col gap-6">
         <x-auth-header :title="__('Log in to your account')" :description="__('Enter your email and password below to log in')" />
 
+        @if (session('login_rejection'))
+            <p role="alert" class="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700 dark:border-red-900 dark:bg-red-950 dark:text-red-300">
+                {{ session('login_rejection') }}
+            </p>
+        @endif
+
         <!-- Session Status -->
         <x-auth-session-status class="text-center" :status="session('status')" />
 

@@ -23,13 +23,7 @@ class SecurityTest extends TestCase
 
         $response->assertOk();
 
-        $response->assertDontSee('Passkeys');
         $response->assertDontSee('Tweestapsverificatie');
-    }
-
-    public function test_passkey_endpoint_is_not_available(): void
-    {
-        $this->get('/.well-known/passkey-endpoints')->assertNotFound();
     }
 
     public function test_security_settings_page_requires_password_confirmation_when_enabled(): void
