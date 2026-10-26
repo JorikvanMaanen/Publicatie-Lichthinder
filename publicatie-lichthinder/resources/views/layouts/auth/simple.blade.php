@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         @include('partials.head')
     </head>
-    <body class="min-h-screen bg-white antialiased dark:bg-linear-to-b dark:from-neutral-950 dark:to-neutral-900">
+    <body class="min-h-screen bg-white antialiased">
         <div class="bg-background flex min-h-svh flex-col items-center justify-center gap-8 p-6 md:p-10">
             <div class="flex w-full max-w-sm flex-col gap-6">
                 <a href="{{ route('home') }}" class="flex flex-col items-center gap-3 font-medium" wire:navigate>
                     <span class="flex h-16 w-16 items-center justify-center rounded-md">
-                        <x-app-logo-icon class="size-16 fill-current text-black dark:text-white" />
+                        <x-app-logo-icon class="size-16 fill-current text-black" />
                     </span>
                     <span class="sr-only">{{ config('app.name', 'Laravel') }}</span>
                 </a>

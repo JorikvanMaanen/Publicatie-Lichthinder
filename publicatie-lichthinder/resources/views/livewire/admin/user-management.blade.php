@@ -4,10 +4,10 @@
         <flux:subheading>{{ __('Bekijk gebruikers en wijzig hun rol.') }}</flux:subheading>
     </div>
 
-    <div class="overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm dark:border-zinc-700 dark:bg-zinc-900">
+    <div class="overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm">
         <div class="overflow-x-auto">
             <table class="min-w-[900px] w-full text-left text-sm">
-                <thead class="bg-zinc-50 text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
+                <thead class="bg-zinc-50 text-zinc-600">
                     <tr>
                         <th scope="col" class="whitespace-nowrap px-4 py-3 font-medium">{{ __('Naam') }}</th>
                         <th scope="col" class="whitespace-nowrap px-4 py-3 font-medium">{{ __('E-mailadres') }}</th>
@@ -16,17 +16,17 @@
                     </tr>
                 </thead>
 
-                <tbody class="divide-y divide-zinc-200 dark:divide-zinc-800">
+                <tbody class="divide-y divide-zinc-200">
                     @foreach ($users as $user)
                         <tr
                             wire:key="user-{{ $user->id }}"
-                            class="transition-colors hover:bg-zinc-50/70 dark:hover:bg-zinc-800/50"
+                            class="transition-colors hover:bg-zinc-50/70"
                         >
-                            <td class="whitespace-nowrap px-4 py-2 font-medium text-zinc-900 dark:text-zinc-100">
+                            <td class="whitespace-nowrap px-4 py-2 font-medium text-zinc-900">
                                 {{ $user->name }}
                             </td>
 
-                            <td class="whitespace-nowrap px-4 py-2 text-zinc-600 dark:text-zinc-400">
+                            <td class="whitespace-nowrap px-4 py-2 text-zinc-600">
                                 {{ $user->email }}
                             </td>
 
@@ -35,14 +35,14 @@
                                     wire:model="roles.{{ $user->id }}"
                                     wire:change="requestRoleChange({{ $user->id }}, $event.target.value)"
                                     aria-label="{{ __('Rol voor :name', ['name' => $user->name]) }}"
-                                    class="w-36 rounded-lg border-zinc-300 bg-white px-3 py-2 text-sm shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:border-zinc-600 dark:bg-zinc-800"
+                                    class="w-36 rounded-lg border-zinc-300 bg-white px-3 py-2 text-sm shadow-sm focus:border-blue-500 focus:ring-blue-500"
                                 >
                                     <option value="user">{{ __('Gebruiker') }}</option>
                                     <option value="admin">{{ __('Beheerder') }}</option>
                                 </select>
 
                                 @error("roles.{$user->id}")
-                                    <p class="mt-1 text-sm text-red-600 dark:text-red-400">
+                                    <p class="mt-1 text-sm text-red-600">
                                         {{ $message }}
                                     </p>
                                 @enderror
@@ -53,7 +53,7 @@
                                     wire:model="approvals.{{ $user->id }}"
                                     wire:change="requestApprovalChange({{ $user->id }}, $event.target.value)"
                                     aria-label="{{ __('Goedkeuringsstatus voor :name', ['name' => $user->name]) }}"
-                                    class="w-40 rounded-lg border-zinc-300 bg-white px-3 py-2 text-sm shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:border-zinc-600 dark:bg-zinc-800"
+                                    class="w-40 rounded-lg border-zinc-300 bg-white px-3 py-2 text-sm shadow-sm focus:border-blue-500 focus:ring-blue-500"
                                 >
                                     <option value="approved">{{ __('Goedgekeurd') }}</option>
                                     <option value="pending">{{ __('In afwachting') }}</option>
@@ -61,7 +61,7 @@
                                 </select>
 
                                 @error("approval.{$user->id}")
-                                    <p class="mt-1 text-sm text-red-600 dark:text-red-400">
+                                    <p class="mt-1 text-sm text-red-600">
                                         {{ $message }}
                                     </p>
                                 @enderror
@@ -106,7 +106,7 @@
 
             @if ($pendingApprovalUserId)
                 @error("approval.{$pendingApprovalUserId}")
-                    <p class="text-sm text-red-600 dark:text-red-400">
+                    <p class="text-sm text-red-600">
                         {{ $message }}
                     </p>
                 @enderror
@@ -153,7 +153,7 @@
 
             @if ($pendingRoleUserId)
                 @error("roles.{$pendingRoleUserId}")
-                    <p class="text-sm text-red-600 dark:text-red-400">
+                    <p class="text-sm text-red-600">
                         {{ $message }}
                     </p>
                 @enderror
